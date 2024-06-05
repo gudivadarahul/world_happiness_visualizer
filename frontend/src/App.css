@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+.App {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  pointer-events: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.tooltip-title {
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tooltip-item {
+  color: #666;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f5f5;
+}
+
+svg {
+  display: block;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.legend rect {
+  margin-right: 10px;
+}
+
+.legend text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controls label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+  margin-right: 10px;
+}
+
+.controls select,
+.controls input {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  outline: none;
+  margin-left: 5px;
+}
+
+.bar {
+  transition: fill 0.3s ease;
+}
+
+.bar:hover {
+  fill: #80cbc4;
+}
+
+.blurb-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.factor-blurb {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .controls label,
+  .controls select,
+  .controls input {
+    margin-bottom: 10px;
+  }
+
+  .legend {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .legend rect {
+    margin-right: 5px;
+  }
+
+  .legend text {
+    font-size: 12px;
+  }
+
+  svg {
+    padding: 10px;
+  }
+}
