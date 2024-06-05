@@ -6,7 +6,8 @@
 "scripts": {
   "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
   "start:backend": "cd backend && npm start",
-  "start:frontend": "cd frontend && npm start"
+  "start:frontend": "cd frontend && npm start",
+  "build": "react-scripts build"
 },
   "keywords": [],
   "author": "",

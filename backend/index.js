@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const csv = require("csv-parser");
 const cors = require("cors");
+
 const app = express();
-const port = process.env.PORT || 8000;
 
 // Enable CORS using the cors middleware
 app.use(
@@ -13,9 +13,13 @@ app.use(
   })
 );
 
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
 app.get("/api/data", (req, res) => {
   const results = [];
-  fs.createReadStream(path.join(__dirname, "csv_files", "2019-happiness-report.csv"))
+  fs.createReadStream(
+    path.join(__dirname, "csv_files", "2019-happiness-report.csv")
+  )
     .pipe(csv())
     .on("data", (data) => {
       // Convert numeric values to numbers
@@ -40,6 +44,12 @@ app.get("/api/data", (req, res) => {
     });
 });
 
+// Serve the frontend's index.html file for all other requests
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
+});
+
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
