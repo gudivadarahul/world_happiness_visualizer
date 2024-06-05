@@ -6,9 +6,12 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: "https://subtle-crostata-f36e2a.netlify.app" }));
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+// Serve the frontend's index.html file for all other requests
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
+});
 
 app.get("/api/data", (req, res) => {
   const results = [];
@@ -44,7 +47,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
 });
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
